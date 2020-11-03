@@ -1,14 +1,14 @@
 const InpageProvider = require('./InpageProvider')
 
 /**
-   * Initializes a MetamaskInpageProvider and (optionally) sets it on window.ethereum.
+   * Initializes a InpageProvider and (optionally) sets it on window.ethereum.
    *
    * @param {Object} opts - An options bag.
    * @param {Object} opts.connectionStream - A Node.js stream.
    * @param {number} opts.maxEventListeners - The maximum number of event listeners.
    * @param {boolean} opts.shouldSendMetadata - Whether the provider should send page metadata.
    * @param {boolean} opts.shouldSetOnWindow - Whether the provider should be set as window.ethereum
-   * @returns {MetamaskInpageProvider | Proxy} The initialized provider (whether set or not).
+   * @returns {InpageProvider | Proxy} The initialized provider (whether set or not).
    */
 function initProvider({
   connectionStream,
@@ -21,7 +21,7 @@ function initProvider({
     throw new Error('Must provide a connection stream.')
   }
 
-  let provider = new MetamaskInpageProvider(
+  let provider = new InpageProvider(
     connectionStream, { shouldSendMetadata, maxEventListeners },
   )
 
